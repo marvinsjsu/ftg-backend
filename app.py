@@ -20,22 +20,22 @@ def thank_you():
     # username must contain lowercase letter
     # username must contain uppercase letter
     # username must end in a number
+    lower_letter = False
+    upper_letter = False
+    num_end = False
+
+    lower_letter = any(c.islower() for c in username)
+    upper_letter = any(c.isupper() for c in username)
+    num_end = username[-1].isdigit()
+
     errors = []
-    if username[-1] not in string.digits:
+    if not num_end:
         errors.append('Username must end in a number')
 
-    no_lowercase_letter = True
-    no_uppercase_letter = True
-    for c in username[0:-1]:
-        if c in string.ascii_lowercase:
-            no_lowercase_letter = False
-        if c in string.ascii_uppercase:
-            no_uppercase_letter = False
-    
-    if no_lowercase_letter:
+    if not lower_letter:
         errors.append('Username must containe a lowercase letter')
     
-    if no_uppercase_letter:
+    if not upper_letter:
         errors.append('Username must contain an uppercase letter')
 
     return render_template('thankyou.html', first_name=first_name, errors=errors)
