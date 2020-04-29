@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Account {{ account_id }}</h1>
+    <h2>{{ 'Welcome' if user_logged_in else 'Please login' }}</h2>
+{% endblock %}

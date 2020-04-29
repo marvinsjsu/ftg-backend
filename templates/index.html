@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="jumbotron">
+        <p>Welcome to FTG</p>
+        <p>Wanna sign up for our service?</p>
+        <a href="{{ url_for('register') }}">Sign up</a>
+    </div>
+    <a href="{{ url_for('static', filename='main_bg.jpg') }}">Food Pic</a>
+{% endblock %}
